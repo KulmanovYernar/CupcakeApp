@@ -24,6 +24,10 @@
             name="viewModel"
             type="com.example.cupcake.model.OrderViewModel" />
 
+        <variable
+            name="summaryFragment"
+            type="com.example.cupcake.SummaryFragment   " />
+
     </data>
 
     <ScrollView
@@ -58,8 +62,8 @@
                     style="@style/Widget.Cupcake.TextView.OrderSummary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.quantity.toString()}"
                     android:layout_marginTop="@dimen/order_summary_margin"
+                    android:text="@{viewModel.quantity.toString()}"
                     tools:text="6 cupcakes" />
 
                 <View
@@ -82,8 +86,8 @@
                     style="@style/Widget.Cupcake.TextView.OrderSummary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.flavor}"
                     android:layout_marginTop="@dimen/order_summary_margin"
+                    android:text="@{viewModel.flavor}"
                     tools:text="Chocolate" />
 
                 <View
@@ -121,11 +125,11 @@
                 <TextView
                     android:id="@+id/total"
                     style="@style/Widget.Cupcake.TextView.FinalPrice"
-                    android:text="@{@string/total_price(viewModel.price)}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/side_margin"
+                    android:text="@{@string/total_price(viewModel.price)}"
                     tools:text="Total $5.00" />
 
             </LinearLayout>
@@ -135,6 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
+                android:onClick="@{() -> summaryFragment.sendOrder()}"
                 android:text="@string/send" />
 
         </LinearLayout>
